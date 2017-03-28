@@ -12,9 +12,6 @@ RUN apt-get -qqy update
 
 RUN apt-get install -qqy puppet
 RUN mkdir -p ~/.ssh
-ADD .ssh/id_rsa /root/.ssh/
-ADD .ssh/id_rsa.pub /root/.ssh/
-ADD .ssh/known_hosts /root/.ssh/
 RUN chmod 600 -R /root/.ssh/*
 
 RUN mkdir -p /etc/puppet/hieradata
