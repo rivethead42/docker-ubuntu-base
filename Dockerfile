@@ -11,8 +11,6 @@ RUN dpkg -i puppetlabs-release-pc1-xenial.deb
 RUN apt-get -qqy update
 
 RUN apt-get install -qqy puppet
-RUN mkdir -p ~/.ssh
-RUN chmod 600 -R /root/.ssh/*
 
 RUN mkdir -p /etc/puppet/hieradata
 
