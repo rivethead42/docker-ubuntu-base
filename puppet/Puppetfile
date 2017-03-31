@@ -1,0 +1,14 @@
+mod 'puppetlabs-stdlib', '4.16.0'
+mod 'maestrodev-wget', '1.7.3'
+
+mod "gosu",
+  :git => "https://github.com/rivethead42/puppet-gosu.git",
+  :ref => "master"
+
+mod "profile",
+  :git => "https://github.com/rivethead42/puppet-profile.git",
+  :ref => "master"
+
+mod "role",
+  :git => "https://github.com/rivethead42/puppet-role.git",
+  :ref => "master"
