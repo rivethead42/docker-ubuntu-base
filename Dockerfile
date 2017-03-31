@@ -31,4 +31,4 @@ COPY puppet/hiera/common.json /etc/puppet/hieradata/
 RUN PUPPETFILE=/etc/puppet/Puppetfile PUPPETFILE_DIR=/etc/puppet/modules/ r10k puppetfile install --verbose debug2 --color
 
 # Run Puppet apply
-RUN puppet apply --modulepath=/etc/puppet/modules/ --hiera_config /etc/puppet/hiera.yaml --verbose
+#RUN puppet apply --modulepath=/etc/puppet/modules/ --hiera_config /etc/puppet/hiera.yaml --verbose
