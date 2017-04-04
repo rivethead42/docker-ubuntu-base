@@ -1,1 +1,1 @@
-lookup('classes')
+lookup('classes', {merge => unique}).include
