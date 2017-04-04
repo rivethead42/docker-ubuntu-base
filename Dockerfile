@@ -18,6 +18,7 @@ RUN mkdir -p /etc/puppet/manifests
 RUN mkdir -p /etc/puppet/hieradata
 
 RUN puppet module install puppet-r10k --version 5.0.0
+RUN puppet apply -f "class { 'r10k': }"
 
 # Configure manifests and modules
 COPY puppet/site.pp /etc/puppet/manifests/
