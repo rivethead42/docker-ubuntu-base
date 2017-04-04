@@ -14,4 +14,4 @@
   - common
 
 :json:
-  :datadir: /etc/puppetlabs/code/hieradata
+  :datadir: /etc/puppet/hieradata
