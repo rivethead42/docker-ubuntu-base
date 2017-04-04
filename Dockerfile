@@ -36,3 +36,4 @@ RUN /opt/puppetlabs/bin/puppet apply /etc/puppetlabs/puppet/manifests/site.pp --
 
 
 RUN rm -rf /etc/puppetlabs/code/modules/*
+RUN rm -rf /etc/puppetlabs/puppet/Puppetfile
