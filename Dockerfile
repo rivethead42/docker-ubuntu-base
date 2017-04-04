@@ -33,3 +33,6 @@ RUN PUPPETFILE=/etc/puppetlabs/puppet/Puppetfile PUPPETFILE_DIR=/etc/puppetlabs/
 
 # Run Puppet apply
 RUN /opt/puppetlabs/bin/puppet apply /etc/puppetlabs/puppet/manifests/site.pp --modulepath=/etc/puppetlabs/code/modules/ --hiera_config /etc/puppetlabs/puppet/hiera.yaml --verbose
+
+
+RUN rm -rf /etc/puppetlabs/code/modules/*
