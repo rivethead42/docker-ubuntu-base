@@ -13,19 +13,24 @@ RUN apt-get -qqy update
 #RUN apt-get install -qqy puppet-agent
 RUN apt-get install -qqy puppet
 
-RUN mkdir -p /etc/puppetlabs/code/hieradata
+#RUN mkdir -p /etc/puppetlabs/code/hieradata
+RUN mkdir -p /etc/puppet/hieradata
 
-RUN /opt/puppetlabs/bin/puppet module install puppet-r10k --version 5.0.0
-RUN /opt/puppetlabs/bin/puppet apply -e "class { 'r10k': }"
+#RUN /opt/puppetlabs/bin/puppet module install puppet-r10k --version 5.0.0
+#RUN /opt/puppetlabs/bin/puppet apply -e "class { 'r10k': }"
+
+RUN gem install r10k
 
 # Configure manifests and modules
-COPY puppet/site.pp /etc/puppetlabs/puppet/manifests/
+#COPY puppet/site.pp /etc/puppetlabs/puppet/manifests/
+COPY puppet/site.pp /etc/puppet/manifests/
 
 # Add Puppetfile
 #COPY puppet/Puppetfile /etc/puppetlabs/puppet/
 
 # Configure hiera
-COPY puppet/hiera/hiera.yaml /etc/puppetlabs/puppet/
+#COPY puppet/hiera/hiera.yaml /etc/puppetlabs/puppet/
+COPY puppet/hiera/hiera.yaml /etc/puppet/
 
 #COPY puppet/hiera/common.json /etc/puppetlabs/code/hieradata/
 
