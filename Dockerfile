@@ -10,8 +10,11 @@ RUN wget https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
 RUN dpkg -i puppetlabs-release-pc1-xenial.deb
 RUN apt-get -qqy update
 
-RUN apt-get install -qqy puppet
+RUN apt-get install -qqy puppet-agent
 
+RUN mkdir -p /etc/puppet/modules
+RUN mkdir -p /etc/puppet/manifests
+RUN mkdir -p /etc/puppet/manifests
 RUN mkdir -p /etc/puppet/hieradata
 
 RUN gem install r10k
