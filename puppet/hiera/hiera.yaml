@@ -7,7 +7,7 @@ defaults:
 
 hierarchy:
   - name: "Common data"
-    path: "common.yaml"
+    path: "common.json"
 #:backends:
 #  - json
 #:hierarchy:
