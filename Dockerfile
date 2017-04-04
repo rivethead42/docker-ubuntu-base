@@ -17,7 +17,7 @@ RUN mkdir -p /etc/puppet/manifests
 RUN mkdir -p /etc/puppet/manifests
 RUN mkdir -p /etc/puppet/hieradata
 
-RUN gem install r10k
+RUN puppet module install puppet-r10k --version 5.0.0
 
 # Configure manifests and modules
 COPY puppet/site.pp /etc/puppet/manifests/
