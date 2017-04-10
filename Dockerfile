@@ -10,36 +10,32 @@ RUN wget https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
 RUN dpkg -i puppetlabs-release-pc1-xenial.deb
 RUN apt-get -qqy update
 
-#RUN apt-get install -qqy puppet-agent
-RUN apt-get install -qqy puppet
+RUN apt-get install -qqy puppet-agent
+#RUN apt-get install -qqy puppet
 
-#RUN mkdir -p /etc/puppetlabs/code/hieradata
-RUN mkdir -p /etc/puppet/hieradata
+RUN mkdir -p /etc/puppetlabs/code/hieradata
+#RUN mkdir -p /etc/puppet/hieradata
 
-#RUN /opt/puppetlabs/bin/puppet module install puppet-r10k --version 5.0.0
-#RUN /opt/puppetlabs/bin/puppet apply -e "class { 'r10k': }"
+RUN /opt/puppetlabs/bin/puppet module install puppet-r10k --version 5.0.0
+RUN /opt/puppetlabs/bin/puppet apply -e "class { 'r10k': }"
 
-RUN gem install r10k
+#RUN gem install r10k
 
 # Configure manifests and modules
-#COPY puppet/site.pp /etc/puppetlabs/puppet/manifests/
-COPY puppet/site.pp /etc/puppet/manifests/
+COPY puppet/site.pp /etc/puppetlabs/puppet/manifests/
+#COPY puppet/site.pp /etc/puppet/manifests/
 
 # Add Puppetfile
-#COPY puppet/Puppetfile /etc/puppetlabs/puppet/
+COPY puppet/Puppetfile /etc/puppetlabs/puppet/
 
 # Configure hiera
-#COPY puppet/hiera/hiera.yaml /etc/puppetlabs/puppet/
-COPY puppet/hiera/hiera.yaml /etc/puppet/
+COPY puppet/hiera/hiera.yaml /etc/puppetlabs/puppet/
+#COPY puppet/hiera/hiera.yaml /etc/puppet/
 
-#COPY puppet/hiera/common.json /etc/puppetlabs/code/hieradata/
+COPY puppet/hiera/common.json /etc/puppetlabs/code/hieradata/
 
 # Run r10k
-#RUN PUPPETFILE=/etc/puppetlabs/puppet/Puppetfile PUPPETFILE_DIR=/etc/puppetlabs/code/modules/ r10k puppetfile install --verbose debug2 --color
+RUN PUPPETFILE=/etc/puppetlabs/puppet/Puppetfile PUPPETFILE_DIR=/etc/puppetlabs/code/modules/ r10k puppetfile install --verbose debug2 --color
 
 # Run Puppet apply
-#RUN /opt/puppetlabs/bin/puppet apply /etc/puppetlabs/puppet/manifests/site.pp --modulepath=/etc/puppetlabs/code/modules/ --hiera_config /etc/puppetlabs/puppet/hiera.yaml --verbose
-
-
-#RUN rm -rf /etc/puppetlabs/code/modules/*
-#RUN rm -rf /etc/puppetlabs/puppet/Puppetfile
+RUN /opt/puppetlabs/bin/puppet apply /etc/puppetlabs/puppet/manifests/site.pp --modulepath=/etc/puppetlabs/code/modules/ --hiera_config /etc/puppetlabs/puppet/hiera.yaml --verbose

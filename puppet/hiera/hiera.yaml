@@ -1,17 +1,18 @@
-#---
-#version: 5
+---
+version: 5
 
-#defaults:
-#  data_hash: json_data
-#  datadir: "/etc/puppetlabs/code/hieradata"
+defaults:
+  data_hash: json_data
+  datadir: "/etc/puppetlabs/code/hieradata"
 
-#hierarchy:
-#  - name: "Common data"
-#    path: "common.json"
-:backends:
-  - json
-:hierarchy:
-  - common
+hierarchy:
+  - name: "Common data"
+    path: "common.json"
 
-:json:
-  :datadir: /etc/puppet/hieradata
+#:backends:
+#  - json
+#:hierarchy:
+#  - common
+
+#:json:
+#  :datadir: /etc/puppet/hieradata
